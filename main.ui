@@ -9,9 +9,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
+    <width>490</width>
     <height>380</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>490</width>
+    <height>380</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>490</width>
+    <height>380</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Infoware</string>
@@ -28,15 +40,16 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>9</y>
+     <y>10</y>
      <width>471</width>
      <height>361</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 40, 40);
+color: rgb(255, 255, 255);
 font: 8pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);
+border-color: rgb(0, 0, 0);
 </string>
    </property>
    <property name="currentIndex">
@@ -68,8 +81,7 @@ color: rgb(0, 0, 0);
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(135, 135, 135);
-</string>
+      <string notr="true">background-color: rgb(0, 123, 255);</string>
      </property>
     </widget>
     <widget class="QFrame" name="System_Info">
@@ -77,7 +89,7 @@ color: rgb(0, 0, 0);
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>411</width>
+       <width>281</width>
        <height>141</height>
       </rect>
      </property>
@@ -94,8 +106,8 @@ color: rgb(0, 0, 0);
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
-        <width>241</width>
+        <y>70</y>
+        <width>261</width>
         <height>20</height>
        </rect>
       </property>
@@ -111,8 +123,8 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
-        <width>71</width>
+        <y>50</y>
+        <width>261</width>
         <height>16</height>
        </rect>
       </property>
@@ -124,8 +136,8 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
-        <width>31</width>
+        <y>90</y>
+        <width>261</width>
         <height>20</height>
        </rect>
       </property>
@@ -137,8 +149,8 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>100</y>
-        <width>241</width>
+        <y>110</y>
+        <width>261</width>
         <height>20</height>
        </rect>
       </property>
@@ -160,7 +172,7 @@ color: rgb(0, 0, 0);</string>
        </rect>
       </property>
       <property name="text">
-       <string>Operating System:</string>
+       <string>OS:</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="OS_display">
@@ -180,12 +192,12 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Version_text">
+     <widget class="QLabel" name="OS_version_text">
       <property name="geometry">
        <rect>
         <x>110</x>
         <y>0</y>
-        <width>41</width>
+        <width>71</width>
         <height>20</height>
        </rect>
       </property>
@@ -193,12 +205,12 @@ color: rgb(0, 0, 0);</string>
        <string>Version:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Version_display">
+     <widget class="QLineEdit" name="OS_version_display">
       <property name="geometry">
        <rect>
         <x>110</x>
         <y>20</y>
-        <width>61</width>
+        <width>81</width>
         <height>20</height>
        </rect>
       </property>
@@ -213,9 +225,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="Arc_text">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>200</x>
         <y>0</y>
-        <width>61</width>
+        <width>71</width>
         <height>20</height>
        </rect>
       </property>
@@ -226,7 +238,7 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Arc_display">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>200</x>
         <y>20</y>
         <width>71</width>
         <height>20</height>
@@ -240,46 +252,14 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="OS_Logo">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>10</y>
-        <width>141</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="Company_Logo">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>90</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
     </widget>
     <widget class="QFrame" name="System_Memory">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>160</y>
-       <width>151</width>
-       <height>61</height>
+       <x>330</x>
+       <y>10</y>
+       <width>131</width>
+       <height>141</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -296,7 +276,7 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>31</width>
+        <width>61</width>
         <height>20</height>
        </rect>
       </property>
@@ -324,9 +304,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="Disk_text">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>0</y>
-        <width>21</width>
+        <x>10</x>
+        <y>40</y>
+        <width>61</width>
         <height>20</height>
        </rect>
       </property>
@@ -337,8 +317,8 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Disk_display">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>20</y>
+        <x>10</x>
+        <y>60</y>
         <width>61</width>
         <height>20</height>
        </rect>
@@ -370,8 +350,7 @@ color: rgb(0, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(135, 135, 135);
-</string>
+      <string notr="true">background-color: rgb(118, 255, 6);</string>
      </property>
     </widget>
     <widget class="QFrame" name="CPU_infos">
@@ -379,7 +358,7 @@ color: rgb(0, 0, 0);</string>
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>411</width>
+       <width>281</width>
        <height>101</height>
       </rect>
      </property>
@@ -397,8 +376,8 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>51</width>
-        <height>16</height>
+        <width>261</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -426,9 +405,9 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
-        <width>31</width>
-        <height>16</height>
+        <y>50</y>
+        <width>41</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -439,8 +418,8 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
-        <width>41</width>
+        <y>70</y>
+        <width>51</width>
         <height>20</height>
        </rect>
       </property>
@@ -455,10 +434,10 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="Threads_text">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
-        <width>41</width>
-        <height>16</height>
+        <x>70</x>
+        <y>50</y>
+        <width>51</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -468,9 +447,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Threads_display">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>60</y>
-        <width>41</width>
+        <x>70</x>
+        <y>70</y>
+        <width>51</width>
         <height>20</height>
        </rect>
       </property>
@@ -482,29 +461,13 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="CPULogo">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>10</y>
-        <width>121</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="Bits_text">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>40</y>
-        <width>21</width>
-        <height>16</height>
+        <x>130</x>
+        <y>50</y>
+        <width>31</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -514,9 +477,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Bits_display">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>60</y>
-        <width>41</width>
+        <x>130</x>
+        <y>70</y>
+        <width>51</width>
         <height>20</height>
        </rect>
       </property>
@@ -531,10 +494,10 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="Socket_text">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
-        <width>41</width>
-        <height>16</height>
+        <x>190</x>
+        <y>50</y>
+        <width>51</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -544,8 +507,8 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Socket_display">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>60</y>
+        <x>190</x>
+        <y>70</y>
         <width>51</width>
         <height>20</height>
        </rect>
@@ -562,10 +525,10 @@ color: rgb(0, 0, 0);</string>
     <widget class="QFrame" name="CPU_clock">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>120</y>
-       <width>191</width>
-       <height>61</height>
+       <x>330</x>
+       <y>10</y>
+       <width>131</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -577,37 +540,37 @@ color: rgb(0, 0, 0);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="BaseClock_text">
+     <widget class="QLabel" name="MinClock_text">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>0</y>
         <width>61</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string> Base Clock:</string>
+       <string>Min. Clock:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="MaximumClock_text">
+     <widget class="QLabel" name="MaxClock_text">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>0</y>
+        <x>10</x>
+        <y>50</y>
         <width>81</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>Maximum Clock:</string>
+       <string>Max. Clock:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="MaximumClock_display">
+     <widget class="QLineEdit" name="MaxClock_display">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>20</y>
+        <x>10</x>
+        <y>70</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -620,7 +583,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="BaseClock_display">
+     <widget class="QLineEdit" name="MinClock_display">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -657,15 +620,16 @@ color: rgb(0, 0, 0);</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(135, 135, 135);
+background-color: rgb(255, 121, 3);
 </string>
      </property>
     </widget>
-    <widget class="QFrame" name="CPU_clock_2">
+    <widget class="QFrame" name="GPU_infos">
      <property name="geometry">
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>411</width>
+       <width>281</width>
        <height>101</height>
       </rect>
      </property>
@@ -683,8 +647,8 @@ color: rgb(0, 0, 0);</string>
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>71</width>
-        <height>16</height>
+        <width>261</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -714,10 +678,10 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLabel" name="Type_text">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>40</y>
-        <width>31</width>
-        <height>16</height>
+        <x>110</x>
+        <y>50</y>
+        <width>161</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -727,9 +691,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QLineEdit" name="Type_display">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>60</y>
-        <width>201</width>
+        <x>110</x>
+        <y>70</y>
+        <width>161</width>
         <height>20</height>
        </rect>
       </property>
@@ -748,9 +712,9 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
-        <width>31</width>
-        <height>16</height>
+        <y>50</y>
+        <width>91</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -761,8 +725,8 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
-        <width>51</width>
+        <y>70</y>
+        <width>91</width>
         <height>20</height>
        </rect>
       </property>
@@ -780,17 +744,36 @@ color: rgb(0, 0, 0);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QLabel" name="Infoware">
+  <widget class="QLabel" name="Version_text">
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>0</y>
+     <y>5</y>
      <width>81</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 75 15pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
+   </property>
+   <property name="text">
+    <string>v0</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="About_button">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>5</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 40, 40);
+font: 75 15pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);
 </string>
    </property>
