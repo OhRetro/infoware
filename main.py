@@ -6,6 +6,7 @@ _version = "2.0"
 try:
     from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
     from PyQt5 import uic
+    from oreto_utils import PyQt
     import webbrowser
 
 except ImportError as missing_package:
@@ -20,19 +21,8 @@ finally:
         from get import GetInfo
         
     except ImportError:
-        print("Is the file missing?")
+        print("Is 'get.py' missing?")
         exit(0)
-
-#About
-def aboutProgram():
-    about = QMessageBox()
-    about.setWindowTitle('Created by OhRetro_')
-    about.setText(f"Infoware v{_version}\nDo you want to open the program's repository on github?")
-    about.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-    openlink = about.exec_()
-
-    if openlink == QMessageBox.Yes:
-        webbrowser.open('https://github.com/OhRetro/Infoware')
 
 #Infoware
 class Infoware(QWidget):
@@ -66,29 +56,8 @@ class Infoware(QWidget):
                          _GPU._type,
                          _GPU._vram)
 
-        #Display Message
-        def display_message(title:str, message:str, standard_buttons=None):
-            display = QMessageBox()
-            display.setWindowTitle(title)
-            display.setText(message)
 
-            if standard_buttons is not None:
-                display.setStandardButtons(standard_buttons)
-                return display.exec_()
-            else:   
-                display.exec_()
-                return
-
-        #About
-        def about():
-            chosen_response = display_message("Created by OhRetro", 
-                                              f"Infoware v{_version}\nDo you want to open the program's repository on github?", 
-                                              QMessageBox.Yes | QMessageBox.No)
-
-            if chosen_response == QMessageBox.Yes:
-                webbrowser.open("https://github.com/OhRetro/Infoware")
-
-        gui.About_button.clicked.connect(about)
+        gui.About_button.clicked.connect(self.about)
         
         gui.show()
 
@@ -119,6 +88,15 @@ class Infoware(QWidget):
             gui.GraphicsCard_display.setText(graph_card)
             gui.Type_display.setText(type)
             gui.VRAM_display.setText(vram)
+
+    #About
+    def about(self):
+        chosen_response = PyQt.display_message("Created by OhRetro", 
+                                                f"Infoware v{_version}\nDo you want to open the program's repository on github?", 
+                                                QMessageBox.Yes | QMessageBox.No)
+
+        if chosen_response == QMessageBox.Yes:
+            webbrowser.open("https://github.com/OhRetro/Infoware")
 
 #Run
 if __name__ == "__main__":
