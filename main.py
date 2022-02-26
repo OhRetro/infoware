@@ -35,59 +35,35 @@ class Infoware(QWidget):
         _CPU = GetInfo.CPU
         _GPU = GetInfo.GPU
 
-        self.SetInfo.system(gui, 
-                            _SYSTEM._manufacturer,
-                            _SYSTEM._model,
-                            _SYSTEM._os,
-                            _SYSTEM._version,
-                            _SYSTEM._architecture,
-                            _SYSTEM._ram,
-                            _SYSTEM._disk)
-        self.SetInfo.cpu(gui,
-                         _CPU._processor,
-                         _CPU._cores,
-                         _CPU._threads,
-                         _CPU._bits,
-                         _CPU._socket,
-                         _CPU._minclock,
-                         _CPU._maxclock)
-        self.SetInfo.gpu(gui,
-                         _GPU._graph_card,
-                         _GPU._type,
-                         _GPU._vram)
+        PyQt.set_text(gui,
+                      #System
+                      Manufacturer_display=_SYSTEM._manufacturer,
+                      Model_display=_SYSTEM._model,
+                      OS_display=_SYSTEM._os,
+                      OS_version_display=_SYSTEM._version,
+                      Arc_display=_SYSTEM._architecture,
+                      RAM_display=_SYSTEM._ram,
+                      Disk_display=_SYSTEM._disk,
+                      
+                      #CPU
+                      Processor_display=_CPU._processor,
+                      Cores_display=_CPU._cores,
+                      Threads_display=_CPU._threads,
+                      Bits_display=_CPU._bits,
+                      Socket_display=_CPU._socket,
+                      MinClock_display=_CPU._minclock,
+                      MaxClock_display=_CPU._maxclock,
+                      
+                      #GPU
+                      GraphicsCard_display=_GPU._graph_card,
+                      Type_display=_GPU._type,
+                      VRAM_display=_GPU._vram,
+                      )
 
 
         gui.About_button.clicked.connect(self.about)
         
         gui.show()
-
-    #Set Info
-    class SetInfo:
-        #System
-        def system(gui, manufacturer="", model="", os="", version="", architecture="", ram="", disk=""):
-            gui.Manufacturer_display.setText(manufacturer)
-            gui.Model_display.setText(model)
-            gui.OS_display.setText(os)
-            gui.OS_version_display.setText(version)
-            gui.Arc_display.setText(architecture)
-            gui.RAM_display.setText(ram)
-            gui.Disk_display.setText(disk)
-
-        #CPU
-        def cpu(gui, processor="", cores="", threads="", bits="", socket="", minclocks="", maxclocks=""):
-            gui.Processor_display.setText("")
-            gui.Cores_display.setText("")
-            gui.Threads_display.setText("")
-            gui.Bits_display.setText("")
-            gui.Socket_display.setText("")
-            gui.MinClock_display.setText("")
-            gui.MaxClock_display.setText("")
-
-        #GPU
-        def gpu(gui, graph_card="", type="", vram=""):
-            gui.GraphicsCard_display.setText(graph_card)
-            gui.Type_display.setText(type)
-            gui.VRAM_display.setText(vram)
 
     #About
     def about(self):
