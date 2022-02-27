@@ -12,7 +12,7 @@ class GetInfo:
         _disk=""
         
     class CPU:
-        _processor=""
+        _model=""
         _cores=""
         _threads=""
         _bits=""
@@ -21,7 +21,7 @@ class GetInfo:
         _maxclock=""
         
     class GPU:
-        _graph_card=""
+        _model=""
         _type=""
         _vram=""
         
