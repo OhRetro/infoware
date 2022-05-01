@@ -19,6 +19,3 @@ To run use:
 ```
 python main.py
 ```
-
-<br/><br/>
-PS: If you are on Linux/MacOS, use python3/pip3
