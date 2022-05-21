@@ -35,7 +35,7 @@ class Infoware(QWidget):
         _CPU = GetInfo.CPU
         _GPU = GetInfo.GPU
 
-        PyQt.set_text(
+        PyQt.settext(
             gui,
             
             #System
@@ -68,7 +68,7 @@ class Infoware(QWidget):
 
     #About
     def about(self):
-        chosen_response = PyQt.display_message(
+        chosen_response = PyQt.displaymessage(
             "Created by OhRetro",
             f"Infoware v{_version}\nDo you want to open the program's repository on github?",
             QMessageBox.Yes | QMessageBox.No,
@@ -85,4 +85,4 @@ if __name__ == "__main__":
         window = Infoware()
         app.exec()
     except Exception as e:
-        PyQt.display_message("a error ocorred", str(e))
+        PyQt.displaymessage("a error ocorred", str(e))
