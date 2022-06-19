@@ -4,10 +4,14 @@ _version = "2.0"
 
 #Imports
 try:
-    from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
+    from PyQt5.QtWidgets import QWidget, QApplication
     from PyQt5 import uic
     from oreto_utils import PyQt
     import webbrowser
+
+    PyQt = PyQt()
+    Icon = PyQt.Icon
+    Button = PyQt.Button
 
 except ImportError as missing_package:
     missing_package = str(missing_package).replace("No module named ", "")
@@ -69,20 +73,18 @@ class Infoware(QWidget):
     #About
     def about(self):
         chosen_response = PyQt.displaymessage(
-            "Created by OhRetro",
-            f"Infoware v{_version}\nDo you want to open the program's repository on github?",
-            QMessageBox.Yes | QMessageBox.No,
+            title="About Infoware",
+            message="Created by OhRetro",
+            informative=f"Infoware v{_version}\nDo you want to open the program's repository on github?",
+            icon=Icon["Infomation"],
+            buttons=Button["Yes"] | Button["No"],
         )
 
-        if chosen_response == QMessageBox.Yes:
+        if chosen_response == Button["Yes"]:
             webbrowser.open("https://github.com/OhRetro/Infoware")
-
 
 #Run
 if __name__ == "__main__":
-    try:
-        app = QApplication(sys.argv)
-        window = Infoware()
-        app.exec()
-    except Exception as e:
-        PyQt.displaymessage("a error ocorred", str(e))
+    app = QApplication(sys.argv)
+    window = Infoware()
+    app.exec()

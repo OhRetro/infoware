@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>main</class>
- <widget class="QWidget" name="main">
+ <class>MAIN</class>
+ <widget class="QWidget" name="MAIN">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -36,7 +36,7 @@
    <string notr="true">background-color: rgb(23, 23, 23);
 </string>
   </property>
-  <widget class="QTabWidget" name="tabs">
+  <widget class="QTabWidget" name="TABS">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -47,9 +47,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 40, 40);
-color: rgb(255, 255, 255);
 font: 8pt &quot;MS Shell Dlg 2&quot;;
-border-color: rgb(0, 0, 0);
 </string>
    </property>
    <property name="currentIndex">
@@ -64,7 +62,7 @@ border-color: rgb(0, 0, 0);
    <property name="tabBarAutoHide">
     <bool>false</bool>
    </property>
-   <widget class="QWidget" name="System_tab">
+   <widget class="QWidget" name="System_TAB">
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
@@ -84,7 +82,7 @@ border-color: rgb(0, 0, 0);
       <string notr="true">background-color: rgb(0, 123, 255);</string>
      </property>
     </widget>
-    <widget class="QFrame" name="System_Info">
+    <widget class="QFrame" name="System_INFO">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -102,7 +100,7 @@ border-color: rgb(0, 0, 0);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLineEdit" name="Manufacturer_display">
+     <widget class="QLineEdit" name="SysManufacturer_display">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -119,7 +117,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Manufacturer_text">
+     <widget class="QLabel" name="SysManufacturer_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -132,7 +130,7 @@ color: rgb(0, 0, 0);</string>
        <string>Manufacturer:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="Model_text">
+     <widget class="QLabel" name="SysModel_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -145,7 +143,7 @@ color: rgb(0, 0, 0);</string>
        <string>Model:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Model_display">
+     <widget class="QLineEdit" name="SysModel_display">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -162,24 +160,24 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="OS_text">
+     <widget class="QLabel" name="SysOSName_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>10</y>
         <width>91</width>
-        <height>20</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>OS:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="OS_display">
+     <widget class="QLineEdit" name="SysOS_display">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
+        <y>30</y>
         <width>91</width>
         <height>20</height>
        </rect>
@@ -188,28 +186,31 @@ color: rgb(0, 0, 0);</string>
        <string notr="true">background-color: rgb(230, 230, 230);
 color: rgb(0, 0, 0);</string>
       </property>
+      <property name="text">
+       <string/>
+      </property>
       <property name="readOnly">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="OS_version_text">
+     <widget class="QLabel" name="SysOSVersion_TEXT">
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>0</y>
+        <y>10</y>
         <width>71</width>
-        <height>20</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>Version:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="OS_version_display">
+     <widget class="QLineEdit" name="SysOS_version_display">
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>20</y>
+        <y>30</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -222,24 +223,24 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Arc_text">
+     <widget class="QLabel" name="SysArch_TEXT">
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>0</y>
+        <y>10</y>
         <width>71</width>
-        <height>20</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>Architecture:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Arc_display">
+     <widget class="QLineEdit" name="SysArc_display">
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>20</y>
+        <y>30</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -271,13 +272,13 @@ color: rgb(0, 0, 0);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="RAM_text">
+     <widget class="QLabel" name="RAM_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>10</y>
         <width>61</width>
-        <height>20</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
@@ -288,7 +289,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
+        <y>30</y>
         <width>61</width>
         <height>20</height>
        </rect>
@@ -301,13 +302,13 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Disk_text">
+     <widget class="QLabel" name="Disk_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>50</y>
         <width>61</width>
-        <height>20</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
@@ -318,7 +319,7 @@ color: rgb(0, 0, 0);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
+        <y>70</y>
         <width>61</width>
         <height>20</height>
        </rect>
@@ -333,12 +334,12 @@ color: rgb(0, 0, 0);</string>
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="CPU_tab">
+   <widget class="QWidget" name="CPUnGPU_TAB">
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <attribute name="title">
-     <string>CPU</string>
+     <string>CPU and GPU</string>
     </attribute>
     <widget class="QWidget" name="LeftBar_CPU" native="true">
      <property name="geometry">
@@ -346,14 +347,14 @@ color: rgb(0, 0, 0);</string>
        <x>0</x>
        <y>0</y>
        <width>31</width>
-       <height>341</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(118, 255, 6);</string>
      </property>
     </widget>
-    <widget class="QFrame" name="CPU_infos">
+    <widget class="QFrame" name="CPU_INFO">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -371,7 +372,7 @@ color: rgb(0, 0, 0);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="Processor_text">
+     <widget class="QLabel" name="Processor_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -401,7 +402,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Cores_text">
+     <widget class="QLabel" name="Cores_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -431,7 +432,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Threads_text">
+     <widget class="QLabel" name="Threads_TEXT">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -461,7 +462,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Bits_text">
+     <widget class="QLabel" name="Bits_TEXT">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -491,7 +492,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Socket_text">
+     <widget class="QLabel" name="Socket_TEXT">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -522,7 +523,7 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="CPU_clock">
+    <widget class="QFrame" name="CPU_CLOCK">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -540,7 +541,7 @@ color: rgb(0, 0, 0);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="MinClock_text">
+     <widget class="QLabel" name="MinClock_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -553,7 +554,7 @@ color: rgb(0, 0, 0);</string>
        <string>Min. Clock:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="MaxClock_text">
+     <widget class="QLabel" name="MaxClock_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -601,34 +602,11 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QWidget" name="GPU_tab">
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <attribute name="title">
-     <string>GPU</string>
-    </attribute>
-    <widget class="QWidget" name="LeftBar_GPU" native="true">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>31</width>
-       <height>341</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(135, 135, 135);
-background-color: rgb(255, 121, 3);
-</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="GPU_infos">
+    <widget class="QFrame" name="GPU_INFO">
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>10</y>
+       <y>180</y>
        <width>281</width>
        <height>101</height>
       </rect>
@@ -642,7 +620,7 @@ background-color: rgb(255, 121, 3);
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="GraphicsCard_text">
+     <widget class="QLabel" name="Model_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -655,7 +633,7 @@ background-color: rgb(255, 121, 3);
        <string>Graphics Card:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="GraphicsCard_display">
+     <widget class="QLineEdit" name="Model_DISPLAY">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -675,7 +653,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="Type_text">
+     <widget class="QLabel" name="Type_TEXT">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -688,7 +666,7 @@ color: rgb(0, 0, 0);</string>
        <string>Type:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Type_display">
+     <widget class="QLineEdit" name="Type_DISPLAY">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -708,7 +686,7 @@ color: rgb(0, 0, 0);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="VRAM_text">
+     <widget class="QLabel" name="VRAM_TEXT">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -721,7 +699,7 @@ color: rgb(0, 0, 0);</string>
        <string>VRAM:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="VRAM_display">
+     <widget class="QLineEdit" name="VRAM_DISPLAY">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -742,9 +720,24 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="LeftBar_GPU" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>170</y>
+       <width>31</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(135, 135, 135);
+background-color: rgb(255, 121, 3);
+</string>
+     </property>
+    </widget>
    </widget>
   </widget>
-  <widget class="QLabel" name="Version_text">
+  <widget class="QLabel" name="Version_TEXT">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -762,7 +755,7 @@ color: rgb(255, 255, 255);
     <string>v0</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="About_button">
+  <widget class="QPushButton" name="About_BUTTON">
    <property name="geometry">
     <rect>
      <x>290</x>

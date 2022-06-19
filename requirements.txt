@@ -1,2 +1,2 @@
-PyQt5==5.15.6
-oreto-utils==0.2.1
+PyQt5==5.15.7
+oreto-utils==0.7.1
