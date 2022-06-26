@@ -1,90 +1,75 @@
-#!/usr/bin/python3
 #Infoware
-_version = "2.0"
+VERSION = ["2.0", "Dev", 200]
 
 #Imports
+from sys import argv as sys_argv
+
 try:
     from PyQt5.QtWidgets import QWidget, QApplication
     from PyQt5 import uic
-    from oreto_utils import PyQt
-    import webbrowser
+    from oreto_utils.pyqt5_utils import Icon as oup_Icon, Button as oup_Button, displaymessage as oup_displaymessage, settext as oup_settext, bindbutton as oup_bindbutton
+    from webbrowser import open as wb_open
 
-    PyQt = PyQt()
-    Icon = PyQt.Icon
-    Button = PyQt.Button
+except ImportError as e:
+    raise ImportError(f"{e}") from e
 
-except ImportError as missing_package:
-    missing_package = str(missing_package).replace("No module named ", "")
-    print(f"{missing_package} is missing.\nPlease install {missing_package}.\n")
-    exit(0)
-
-finally:
-    import sys
-
-    try:
-        from get import GetInfo
-
-    except ImportError:
-        print("Is 'get.py' missing?")
-        exit(0)
+from pc import SYSTEM, CPU, GPU, debug
 
 #Infoware
 class Infoware(QWidget):
     def __init__(self):
         super().__init__()
         gui = uic.loadUi("./main.ui", self)
-        gui.Version_text.setText(f"v{_version}")
+        gui.Version_TEXT.setText(f"v{VERSION[0]}")
 
-        _SYSTEM = GetInfo.System
-        _CPU = GetInfo.CPU
-        _GPU = GetInfo.GPU
-
-        PyQt.settext(
+        debug() #TODO: REMOVE THIS LINE WHEN FINISHED
+        
+        oup_settext(
             gui,
             
             #System
-            Manufacturer_display=_SYSTEM._manufacturer,
-            Model_display=_SYSTEM._model,
-            OS_display=_SYSTEM._os,
-            OS_version_display=_SYSTEM._version,
-            Arc_display=_SYSTEM._architecture,
-            RAM_display=_SYSTEM._ram,
-            Disk_display=_SYSTEM._disk,
+            SysManufacturer_DISPLAY=SYSTEM["MANUFACTURER"],
+            SysModel_DISPLAY=SYSTEM["MODEL"],
+            SysOSName_DISPLAY=SYSTEM["OS"],
+            SysOSVersion_DISPLAY=SYSTEM["VERSION"],
+            SysArch_DISPLAY=SYSTEM["MACHINE"],
+            SysRAM_DISPLAY=SYSTEM["RAM"]["TOTAL"],
+            SysDisk_DISPLAY=SYSTEM["DISK"]["TOTAL"],
             
             #CPU
-            Processor_display=_CPU._model,
-            Cores_display=_CPU._cores,
-            Threads_display=_CPU._threads,
-            Bits_display=_CPU._bits,
-            Socket_display=_CPU._socket,
-            MinClock_display=_CPU._minclock,
-            MaxClock_display=_CPU._maxclock,
+            CPUModel_DISPLAY=CPU["MODEL"],
+            CPUCores_DISPLAY=CPU["CORES"],
+            CPUThreads_DISPLAY=CPU["THREADS"],
+            CPUArch_DISPLAY=CPU["ARCH"],
+            CPUSocket_DISPLAY=CPU["SOCKET"],
+            CPUMinClock_DISPLAY=CPU["CLOCK"]["MIN"],
+            CPUMaxClock_DISPLAY=CPU["CLOCK"]["MAX"],
             
             #GPU
-            GraphicsCard_display=_GPU._model,
-            Type_display=_GPU._type,
-            VRAM_display=_GPU._vram,
+            GPUModel_DISPLAY=GPU["MODEL"],
+            GPUType_DISPLAY=GPU["TYPE"],
+            GPUVRAM_DISPLAY=GPU["VRAM"]
         )
-
-        gui.About_button.clicked.connect(self.about)
-
+ 
+        oup_bindbutton(gui, "About_BUTTON", self.about)
         gui.show()
 
     #About
     def about(self):
-        chosen_response = PyQt.displaymessage(
+        response = oup_displaymessage(
             title="About Infoware",
-            message="Created by OhRetro",
-            informative=f"Infoware v{_version}\nDo you want to open the program's repository on github?",
-            icon=Icon["Infomation"],
-            buttons=Button["Yes"] | Button["No"],
+            message=f"Infoware v{VERSION[0]} | {VERSION[1]} | Version Code: {VERSION[2]}; Created by OhRetro", 
+            informative="Do you want to open the program's repository on github?",
+            icon=oup_Icon["Information"],
+            buttons=(oup_Button["Yes"] | oup_Button["No"]),
+            windowicon="./icon.png"
         )
 
-        if chosen_response == Button["Yes"]:
-            webbrowser.open("https://github.com/OhRetro/Infoware")
+        if response == oup_Button["Yes"]:
+            wb_open("https://github.com/OhRetro/Infoware")
 
 #Run
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
+    app = QApplication(sys_argv)
     window = Infoware()
     app.exec()
