@@ -26,7 +26,6 @@ class Infoware(QWidget):
         
         oup_settext(
             gui,
-            
             #System
             SysManufacturer_DISPLAY=SYSTEM["MANUFACTURER"],
             SysModel_DISPLAY=SYSTEM["MODEL"],
@@ -35,7 +34,6 @@ class Infoware(QWidget):
             SysArch_DISPLAY=SYSTEM["MACHINE"],
             SysRAM_DISPLAY=SYSTEM["RAM"]["TOTAL"],
             SysDisk_DISPLAY=SYSTEM["DISK"]["TOTAL"],
-            
             #CPU
             CPUModel_DISPLAY=CPU["MODEL"],
             CPUCores_DISPLAY=CPU["CORES"],
@@ -44,7 +42,6 @@ class Infoware(QWidget):
             CPUSocket_DISPLAY=CPU["SOCKET"],
             CPUMinClock_DISPLAY=CPU["CLOCK"]["MIN"],
             CPUMaxClock_DISPLAY=CPU["CLOCK"]["MAX"],
-            
             #GPU
             GPUModel_DISPLAY=GPU["MODEL"],
             GPUType_DISPLAY=GPU["TYPE"],
