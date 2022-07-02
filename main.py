@@ -2,18 +2,27 @@
 VERSION = ["2.0", "Dev", 200]
 
 #Imports
+from cmath import e
 from sys import argv as sys_argv
-
-try:
-    from PyQt5.QtWidgets import QWidget, QApplication
-    from PyQt5 import uic
-    from oreto_utils.pyqt5_utils import Icon as oup_Icon, Button as oup_Button, displaymessage as oup_displaymessage, settext as oup_settext, bindbutton as oup_bindbutton
-    from webbrowser import open as wb_open
-
-except ImportError as e:
-    raise ImportError(f"{e}") from e
+from traceback import format_exc as tb_format_exc
+from webbrowser import open as wb_open
 
 from pc import SYSTEM, CPU, GPU, debug
+
+if SYSTEM["OS"] != "Windows":
+    print("Infoware only works for now on Windows.")
+    exit(2)
+
+try:
+    from PyQt5.QtWidgets import QWidget, QApplication, QTabWidget, QStackedWidget, QTabBar
+    from PyQt5 import uic
+    from oreto_utils.pyqt5_utils import Icon as oup_Icon, Button as oup_Button
+    from oreto_utils.pyqt5_utils import displaymessage as oup_displaymessage, settext as oup_settext, bindbutton as oup_bindbutton
+
+except ImportError:
+    print(tb_format_exc())
+    print("\n[!] Please try running \"pip install -r requirements.txt\"")
+    exit(1)
 
 #Infoware
 class Infoware(QWidget):
@@ -22,8 +31,28 @@ class Infoware(QWidget):
         gui = uic.loadUi("./main.ui", self)
         gui.Version_TEXT.setText(f"v{VERSION[0]}")
 
-        debug() #TODO: REMOVE THIS LINE WHEN FINISHED
+        #debug() #TODO: REMOVE THIS LINE WHEN FINISHED
         
+        def getelements(gui):
+            elements = []
+            for element in gui.children():
+                if isinstance(element, QTabWidget):
+                    elements.append([element.objectName(), getelements(element)])
+                    
+                elif isinstance(element, QStackedWidget):
+                    elements.append(getelements(element))
+                elif isinstance(element, QTabBar):
+                    elements.append(getelements(element))
+                
+                else:
+                    elements.append(element.objectName())
+                
+            return elements
+                
+        a = getelements(gui)
+        for element in a:
+            print(f"{element}")
+            
         oup_settext(
             gui,
             #System
@@ -40,8 +69,8 @@ class Infoware(QWidget):
             CPUThreads_DISPLAY=CPU["THREADS"],
             CPUArch_DISPLAY=CPU["ARCH"],
             CPUSocket_DISPLAY=CPU["SOCKET"],
-            CPUMinClock_DISPLAY=CPU["CLOCK"]["MIN"],
-            CPUMaxClock_DISPLAY=CPU["CLOCK"]["MAX"],
+            CPUMinClock_DISPLAY=CPU["FREQ"]["MIN"],
+            CPUMaxClock_DISPLAY=CPU["FREQ"]["MAX"],
             #GPU
             GPUModel_DISPLAY=GPU["MODEL"],
             GPUType_DISPLAY=GPU["TYPE"],
