@@ -1,10 +1,27 @@
 from platform import system as pf_system, release as pf_release, machine as pf_machine, version as pf_version, architecture as pf_architecture
-from oreto_utils.others_utils import formatsize as ouo_formatsize
-from oreto_utils.terminal_utils import clear as out_clear
 from shutil import disk_usage as sh_disk_usage
 from psutil import virtual_memory as ps_virtual_memory, cpu_count as ps_cpu_count, cpu_freq as ps_cpu_freq
 from contextlib import suppress as cl_suppress
 from multiprocessing import Process as mp_Process
+
+BYTE_UNITS:list[str] = ["Bytes", "KB", "MB", "GB", "TB", "PB"]
+
+def format_byte_size(byte_size:int) -> str:
+    """The size in byte will be formated in KB, MB, GB, TB or PB."""
+    global BYTE_UNITS
+    
+    for i in range(5):
+        if byte_size < 1024**(i+1):
+            selected_unit = i
+            break
+
+    if byte_size >= 1024:
+        formated_size = round(byte_size/1024**selected_unit, 2)
+    else:
+        formated_size = round(byte_size)
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB"]
+    return f"{formated_size} {units[selected_unit]}"
 
 VIRTUAL_MEMORY = ps_virtual_memory()
 DISK_USAGE = sh_disk_usage("C:/")
@@ -23,26 +40,23 @@ SYSTEM = {
         },
     "MACHINE": pf_machine(),
     "RAM": {
-        "TOTAL": ouo_formatsize(VIRTUAL_MEMORY.total),
-        "AVAILABLE": ouo_formatsize(VIRTUAL_MEMORY.available),
+        "TOTAL": format_byte_size(VIRTUAL_MEMORY.total),
+        "AVAILABLE": format_byte_size(VIRTUAL_MEMORY.available),
         "PERCENT": f"{VIRTUAL_MEMORY.percent}%",
-        "USED": ouo_formatsize(VIRTUAL_MEMORY.used),
-        "FREE": ouo_formatsize(VIRTUAL_MEMORY.free),
+        "USED": format_byte_size(VIRTUAL_MEMORY.used),
+        "FREE": format_byte_size(VIRTUAL_MEMORY.free),
         },
     "DISK": {
-        "TOTAL": ouo_formatsize(DISK_USAGE.total),
-        "USED": ouo_formatsize(DISK_USAGE.used),
-        "FREE": ouo_formatsize(DISK_USAGE.free),
+        "TOTAL": format_byte_size(DISK_USAGE.total),
+        "USED": format_byte_size(DISK_USAGE.used),
+        "FREE": format_byte_size(DISK_USAGE.free),
         },
 }
 CPU = {
     "MANUFACTURER": None,
     "MODEL": None,
-    "CORES": {
-        "PHYSICAL": ps_cpu_count(False),
-        "LOGICAL": ps_cpu_count(True),
-        },
-    "THREADS": None,
+    "CORES": ps_cpu_count(False), #PHYSICAL
+    "THREADS": ps_cpu_count(True), #LOGICAL
     "ARCH": None,
     "SOCKET": None,
     "FREQ": {

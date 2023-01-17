@@ -1,3 +1,2 @@
 PyQt5==5.15.7
-oreto-utils==0.8
-psutil==5.9.1
+psutil==5.9.4

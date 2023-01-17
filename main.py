@@ -1,8 +1,7 @@
 #Infoware
-VERSION = ["2.0", "Dev", 200]
+VERSION = 2.0
 
 #Imports
-from cmath import e
 from sys import argv as sys_argv
 from traceback import format_exc as tb_format_exc
 from webbrowser import open as wb_open
@@ -16,8 +15,8 @@ if SYSTEM["OS"] != "Windows":
 try:
     from PyQt5.QtWidgets import QWidget, QApplication, QTabWidget, QStackedWidget, QTabBar
     from PyQt5 import uic
-    from oreto_utils.pyqt5_utils import Icon as oup_Icon, Button as oup_Button
-    from oreto_utils.pyqt5_utils import displaymessage as oup_displaymessage, settext as oup_settext, bindbutton as oup_bindbutton
+    from pyqt5_utils import Icon as oup_Icon, Button as oup_Button
+    from pyqt5_utils import displaymessage as oup_displaymessage, settext as oup_settext, bindbutton as oup_bindbutton
 
 except ImportError:
     print(tb_format_exc())
@@ -29,29 +28,9 @@ class Infoware(QWidget):
     def __init__(self):
         super().__init__()
         gui = uic.loadUi("./main.ui", self)
-        gui.Version_TEXT.setText(f"v{VERSION[0]}")
+        gui.Version_TEXT.setText(f"v{VERSION}")
 
-        #debug() #TODO: REMOVE THIS LINE WHEN FINISHED
-        
-        def getelements(gui):
-            elements = []
-            for element in gui.children():
-                if isinstance(element, QTabWidget):
-                    elements.append([element.objectName(), getelements(element)])
-                    
-                elif isinstance(element, QStackedWidget):
-                    elements.append(getelements(element))
-                elif isinstance(element, QTabBar):
-                    elements.append(getelements(element))
-                
-                else:
-                    elements.append(element.objectName())
-                
-            return elements
-                
-        a = getelements(gui)
-        for element in a:
-            print(f"{element}")
+        #debug()
             
         oup_settext(
             gui,
@@ -84,7 +63,7 @@ class Infoware(QWidget):
     def about(self):
         response = oup_displaymessage(
             title="About Infoware",
-            message=f"Infoware v{VERSION[0]} | {VERSION[1]} | Version Code: {VERSION[2]}; Created by OhRetro", 
+            message=f"Infoware v{VERSION}; Created by OhRetro", 
             informative="Do you want to open the program's repository on github?",
             icon=oup_Icon["Information"],
             buttons=(oup_Button["Yes"] | oup_Button["No"]),
