@@ -1,7 +1,5 @@
-#Infoware
 VERSION = 2.0
 
-#Imports
 from sys import argv as sys_argv
 from traceback import format_exc as tb_format_exc
 from webbrowser import open as wb_open
@@ -23,7 +21,6 @@ except ImportError:
     print("\n[!] Please try running \"pip install -r requirements.txt\"")
     exit(1)
 
-#Infoware
 class Infoware(QWidget):
     def __init__(self):
         super().__init__()
@@ -34,7 +31,7 @@ class Infoware(QWidget):
             
         oup_settext(
             gui,
-            #System
+
             SysManufacturer_DISPLAY=SYSTEM["MANUFACTURER"],
             SysModel_DISPLAY=SYSTEM["MODEL"],
             SysOSName_DISPLAY=SYSTEM["OS"],
@@ -42,7 +39,7 @@ class Infoware(QWidget):
             SysArch_DISPLAY=SYSTEM["MACHINE"],
             SysRAM_DISPLAY=SYSTEM["RAM"]["TOTAL"],
             SysDisk_DISPLAY=SYSTEM["DISK"]["TOTAL"],
-            #CPU
+
             CPUModel_DISPLAY=CPU["MODEL"],
             CPUCores_DISPLAY=CPU["CORES"],
             CPUThreads_DISPLAY=CPU["THREADS"],
@@ -50,7 +47,7 @@ class Infoware(QWidget):
             CPUSocket_DISPLAY=CPU["SOCKET"],
             CPUMinClock_DISPLAY=CPU["FREQ"]["MIN"],
             CPUMaxClock_DISPLAY=CPU["FREQ"]["MAX"],
-            #GPU
+
             GPUModel_DISPLAY=GPU["MODEL"],
             GPUType_DISPLAY=GPU["TYPE"],
             GPUVRAM_DISPLAY=GPU["VRAM"]
@@ -59,7 +56,6 @@ class Infoware(QWidget):
         oup_bindbutton(gui, "About_BUTTON", self.about)
         gui.show()
 
-    #About
     def about(self):
         response = oup_displaymessage(
             title="About Infoware",
@@ -73,7 +69,6 @@ class Infoware(QWidget):
         if response == oup_Button["Yes"]:
             wb_open("https://github.com/OhRetro/Infoware")
 
-#Run
 if __name__ == "__main__":
     app = QApplication(sys_argv)
     window = Infoware()
